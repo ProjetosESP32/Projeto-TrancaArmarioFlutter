@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "855610528103",
+    "firebase_url": "https://armario-49f10.firebaseio.com",
+    "project_id": "armario-49f10",
+    "storage_bucket": "armario-49f10.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:855610528103:android:04c73485db9aa29b44dfc2",
+        "android_client_info": {
+          "package_name": "com.example.armario_ernany"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "855610528103-89di2hoh7etednlpkdepkkq7ddi3mjkb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATJpf0Z4A5ISxVgpvxw_xOBzypSLJRdUA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "855610528103-89di2hoh7etednlpkdepkkq7ddi3mjkb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:855610528103:android:98e854ef939b1cbd44dfc2",
+        "android_client_info": {
+          "package_name": "com.example.armario_tranca_ifmt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "855610528103-89di2hoh7etednlpkdepkkq7ddi3mjkb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATJpf0Z4A5ISxVgpvxw_xOBzypSLJRdUA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "855610528103-89di2hoh7etednlpkdepkkq7ddi3mjkb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

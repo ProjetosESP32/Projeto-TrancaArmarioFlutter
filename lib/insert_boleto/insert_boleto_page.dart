@@ -32,25 +32,6 @@ class _InsertInfosState extends State<InsertInfos> {
     super.initState();
   }
 
-  void _showDialog() {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        // retorna um objeto do tipo Dialog
-        return AlertDialog(
-          title: new Text("Alert Dialog titulo"),
-          content: new Text("Alert Dialog body"),
-          actions: <Widget>[
-            // define os botões na base do dialogo
-            new CloseButton(
-              color: AppColors.primary,
-            ),
-          ],
-        );
-      },
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,6 +1,8 @@
-import 'package:armario_tranca_ifmt/insert_boleto/database.dart';
 import 'package:armario_tranca_ifmt/models/boleto_model.dart';
-import 'package:http/http.dart' as http;
+import 'package:armario_tranca_ifmt/themes/app_colors.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_database/firebase_database.dart';
+
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -20,11 +22,13 @@ class InsertBoletoController {
   }
 
   Future<void> saveBoleto() async {
-    final instance = await SharedPreferences.getInstance();
-    final boletos = instance.getStringList("boletos") ?? <String>[];
-    boletos.add(model.toJson());
-    await instance.setStringList("boletos", boletos);
-    print("Entrou aqui");
+    WidgetsFlutterBinding.ensureInitialized();
+    await Firebase.initializeApp();
+    final fb = FirebaseDatabase.instance;
+    final ref = fb.reference();
+    print(ref.child("ARMARIO/Proprietario").set(model.name));
+    print(ref.child("ARMARIO/Validade").set(model.validade));
+    print(ref.child("ARMARIO/SenhaGerada").set(model.senha));
 
     return;
   }
@@ -35,16 +39,4 @@ class InsertBoletoController {
       return await saveBoleto();
     }
   }
-
-  /*Future<void> go(BoletoModel BoletoModel) async {
-    var response =
-        await http.put(Uri.parse("https://oie1-a40fc.firebaseio.com"), body: {
-      'Proprietario': BoletoModel.name,
-      'SenhaGerada': BoletoModel.senha,
-      'Validade': BoletoModel.validade,
-    });
-    print('Response status: ${response.statusCode}');
-    print('Response body: ${response.body}');
-    print("Database");
-  }*/
 }
