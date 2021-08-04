@@ -131,8 +131,7 @@ class _InsertInfosState extends State<InsertInfos> {
                 await controller.cadastrar();
                 return _showMyDialog("Usuário enviado com sucesso!");
               } catch (err) {
-                return _showMyDialog(
-                    "Algo deu errado, tente novamente mais tarde");
+                return _showMyDialog("Algo deu errado, tente novamente");
               }
             },
           ),
