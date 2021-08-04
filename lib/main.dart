@@ -1,6 +1,7 @@
+//@dart=2.9
 import 'package:flutter/material.dart';
 
-import 'insert_boleto/insert_boleto_page.dart';
+import 'insert_pessoa/insert_pessoas_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green,
       ),
       home: InsertInfos(),
     );

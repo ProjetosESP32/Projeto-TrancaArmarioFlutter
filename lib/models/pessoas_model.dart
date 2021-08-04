@@ -1,22 +1,22 @@
 import 'dart:convert';
 
-class BoletoModel {
+class PessoaModel {
   final String? name;
   final String? senha;
   final String? validade;
 
-  BoletoModel({
+  PessoaModel({
     this.name,
     this.senha,
     this.validade,
   });
 
-  BoletoModel copyWith({
+  PessoaModel copyWith({
     String? name,
     String? senha,
     String? validade,
   }) {
-    return BoletoModel(
+    return PessoaModel(
       name: name ?? this.name,
       senha: senha ?? this.senha,
       validade: validade ?? this.validade,
@@ -31,8 +31,8 @@ class BoletoModel {
     };
   }
 
-  factory BoletoModel.fromMap(Map<String, dynamic> map) {
-    return BoletoModel(
+  factory PessoaModel.fromMap(Map<String, dynamic> map) {
+    return PessoaModel(
       name: map['name'],
       senha: map['senha'],
       validade: map['validade'],
@@ -41,19 +41,19 @@ class BoletoModel {
 
   String toJson() => json.encode(toMap());
 
-  factory BoletoModel.fromJson(String source) =>
-      BoletoModel.fromMap(json.decode(source));
+  factory PessoaModel.fromJson(String source) =>
+      PessoaModel.fromMap(json.decode(source));
 
   @override
   String toString() {
-    return 'BoletoModel(name: $name, senha: $senha, validade: $validade,)';
+    return 'PessoaModel(name: $name, senha: $senha, validade: $validade,)';
   }
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
 
-    return other is BoletoModel &&
+    return other is PessoaModel &&
         other.name == name &&
         other.senha == senha &&
         other.validade == validade;

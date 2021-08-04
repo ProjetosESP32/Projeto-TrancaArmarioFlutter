@@ -1,4 +1,4 @@
-import 'package:armario_tranca_ifmt/insert_boleto/insert_boleto_controller.dart';
+import 'package:armario_tranca_ifmt/insert_pessoa/insert_pessoas_controller.dart';
 import 'package:armario_tranca_ifmt/themes/app_colors.dart';
 import 'package:armario_tranca_ifmt/themes/app_text_styles.dart';
 import 'package:armario_tranca_ifmt/widgets/input_text/input_text_widget.dart';
@@ -18,18 +18,30 @@ class InsertInfos extends StatefulWidget {
 }
 
 class _InsertInfosState extends State<InsertInfos> {
-  final controller = InsertBoletoController();
+  final controller = InsertPessoasController();
 
-  final moneyInputTextController = TextEditingController();
-  final vencimentoInputTextController = TextEditingController();
-  final codigoInputTextController = TextEditingController();
+  final validadeInputTextController = TextEditingController();
+  final nomeInputTextController = TextEditingController();
+  final senhaInputTextController = TextEditingController();
 
-  @override
-  void initState() {
-    if (widget.barcode != null) {
-      codigoInputTextController.text = widget.barcode!;
-    }
-    super.initState();
+  Future<void> _showMyDialog(String titulo) async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(titulo),
+          actions: <Widget>[
+            TextButton(
+              child: Text('Fechar'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
 
   @override
@@ -68,22 +80,23 @@ class _InsertInfosState extends State<InsertInfos> {
                       onChanged: (value) {
                         controller.onChange(name: value);
                       },
+                      controller: nomeInputTextController,
                       validator: controller.validateName,
                     ),
                     InputTextWidget(
-                      controller: vencimentoInputTextController,
                       label: "Senha",
                       icon: FontAwesomeIcons.key,
                       onChanged: (value) {
                         controller.onChange(senha: value);
                       },
-                      validator: controller.validateVencimento,
+                      controller: senhaInputTextController,
+                      validator: controller.validateSenha,
                     ),
                     InputTextWidget(
-                      controller: codigoInputTextController,
                       label: "validade",
                       icon: FontAwesomeIcons.calendar,
-                      validator: controller.validateCodigo,
+                      controller: validadeInputTextController,
+                      validator: controller.validateValidade,
                       onChanged: (value) {
                         controller.onChange(validade: value);
                       },
@@ -114,7 +127,13 @@ class _InsertInfosState extends State<InsertInfos> {
             },
             labelSecondary: "Cadastrar",
             onTapSecondary: () async {
-              await controller.cadastrar();
+              try {
+                await controller.cadastrar();
+                return _showMyDialog("Usuário enviado com sucesso!");
+              } catch (err) {
+                return _showMyDialog(
+                    "Algo deu errado, tente novamente mais tarde");
+              }
             },
           ),
         ],
