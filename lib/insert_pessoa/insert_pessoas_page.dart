@@ -18,12 +18,13 @@ class InsertInfos extends StatefulWidget {
 }
 
 class _InsertInfosState extends State<InsertInfos> {
+  //Variaveis de controle de entrada, recebem os dados do usuario
   final controller = InsertPessoasController();
-
   final validadeInputTextController = TextEditingController();
   final nomeInputTextController = TextEditingController();
   final senhaInputTextController = TextEditingController();
 
+  //Precisa ser Future pois tem validação dos dados antes de ser chamado o alerta de confirmação de envio dos dados (Ultimo passo)
   Future<void> _showMyDialog(String titulo) async {
     return showDialog<void>(
       context: context,
@@ -44,17 +45,11 @@ class _InsertInfosState extends State<InsertInfos> {
     );
   }
 
+  //Interface propriamente dita
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.background,
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: AppColors.background,
-        leading: BackButton(
-          color: AppColors.input,
-        ),
-      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -70,6 +65,8 @@ class _InsertInfosState extends State<InsertInfos> {
                   textAlign: TextAlign.center,
                 ),
               ),
+
+              //Inicio do formulario e armazenamento dos valores em variaveis temporarias
               Form(
                 key: controller.formKey,
                 child: Column(
@@ -77,6 +74,8 @@ class _InsertInfosState extends State<InsertInfos> {
                     InputTextWidget(
                       label: "Nome",
                       icon: Icons.people_alt,
+
+                      //Recebe a entrada do valor nome
                       onChanged: (value) {
                         controller.onChange(name: value);
                       },
@@ -86,6 +85,8 @@ class _InsertInfosState extends State<InsertInfos> {
                     InputTextWidget(
                       label: "Senha",
                       icon: FontAwesomeIcons.key,
+
+                      //Recebe a entrada do valor senha
                       onChanged: (value) {
                         controller.onChange(senha: value);
                       },
@@ -95,11 +96,13 @@ class _InsertInfosState extends State<InsertInfos> {
                     InputTextWidget(
                       label: "validade",
                       icon: FontAwesomeIcons.calendar,
-                      controller: validadeInputTextController,
-                      validator: controller.validateValidade,
+
+                      //Recebe a entrada do valor validade
                       onChanged: (value) {
                         controller.onChange(validade: value);
                       },
+                      controller: validadeInputTextController,
+                      validator: controller.validateValidade,
                     )
                   ],
                 ),
@@ -108,6 +111,8 @@ class _InsertInfosState extends State<InsertInfos> {
           ),
         ),
       ),
+
+      //Botões do fim da tela de confirmação ou recarregamento
       bottomNavigationBar: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -118,15 +123,20 @@ class _InsertInfosState extends State<InsertInfos> {
           ),
           SetLabelButtons(
             enableSecondaryColor: true,
+            //Botão de limpar
             labelPrimary: "Limpar",
+
+            //ao tocar apenas cria a mesma pagina e exclui a anterior "pushReplacement"
             onTapPrimary: () {
               Navigator.pushReplacement(
                   context,
                   new MaterialPageRoute(
                       builder: (BuildContext context) => new InsertInfos()));
             },
+            //Botão cadastrar
             labelSecondary: "Cadastrar",
             onTapSecondary: () async {
+              //Chama uma função para validar os dados
               try {
                 await controller.cadastrar();
                 return _showMyDialog("Usuário enviado com sucesso!");
