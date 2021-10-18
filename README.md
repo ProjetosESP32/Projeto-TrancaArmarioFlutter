@@ -10,6 +10,9 @@
 ---
 <br>
 <h2 align="center">Como Usar 🤔</h2>
+
+<a href="https://vitoria-angel2002.medium.com/cadastro-em-flutter-integra%C3%A7%C3%A3o-firebase-e-esp32-15190afc2490">Acesse o artigo no Medium com maior detalhamento no código</a>
+
 <br>
    
    ```
