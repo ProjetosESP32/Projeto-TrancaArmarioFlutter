@@ -1,17 +1,36 @@
 
-<h1 align="center"> Armario tranca IFMT </h1>
-
-<h2 align="center">Sobre 📖</h2>
+<h1 align="center"> Cadastro em Flutter, integração Firebase e ESP32 </h1>
 <br>
-<p>
-   Esse projeto foi desenvolvido por alunes do IFMT, se trata de um app mobile feito em Flutter 💙 para o gerenciamento de usuarios acessarem um armário automatizado com ESP32, contendo recursos como Firebase e estilizações personalizadas, entre vários outros pontos
+<p align="center">
+   Este projeto tem como objetivo apresentar o desenvolvimento de um programa mobile construído em Flutter, o qual recebe informações de um usuário, envia ao banco de dados e assim o Esp32 recebe essas informações e armazena em seu sistema para abrir uma fechadura. 💙
 </p>
+<p align='center'>
+    <img width="100%" src="https://miro.medium.com/max/1400/1*ICo7L-8Q3ICRmOeBTs_Asw.jpeg" />&nbsp;&nbsp;
+</p>
+<br>
 
 ---
+
+<br>
+<h2 align="center">Tecnologias 💻</h2>
+<br>
+<p align='center'>
+    <img src="https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white" />&nbsp;&nbsp;
+    <img src="https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white" />&nbsp;&nbsp;
+    <img src="https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white" />&nbsp;&nbsp;
+    <img src="https://img.shields.io/badge/Arduino_IDE-00979D?style=for-the-badge&logo=arduino&logoColor=white" />&nbsp;&nbsp;
+    <img src="https://img.shields.io/badge/firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black" />&nbsp;&nbsp;
+    <img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white" />&nbsp;&nbsp;
+    <img src="https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white" />  
+</p>
+<div align='center'>
+    <h3><a href="https://vitoria-angel2002.medium.com">Você também pode encontrar este artigo no Medium!</a></h3>&nbsp;&nbsp;
+</div>
+
+---
+
 <br>
 <h2 align="center">Como Usar 🤔</h2>
-
-<a href="https://vitoria-angel2002.medium.com/cadastro-em-flutter-integra%C3%A7%C3%A3o-firebase-e-esp32-15190afc2490">Acesse o artigo no Medium com maior detalhamento no código</a>
 
 <br>
    
@@ -41,7 +60,7 @@
 <br>
    
 <p align="center">
-  <img alt="Tela de cadastro des alunes" src="https://github.com/Gibdike/armario_tranca_ifmt/blob/master/esp/Tranca_Armario222/printforms.jpeg?raw=true"  height="800px">
+  <img alt="Tela de cadastro des alunes" src="https://github.com/ProjetosESP32/Projeto-TrancaArmarioFlutter/blob/master/esp/Tranca_Armario222/printforms.jpeg"  height="800px">
 </p>
       
 ---
